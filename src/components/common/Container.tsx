@@ -11,9 +11,9 @@ type ContainerProps = Omit<ComponentProps<typeof BlurFade>, 'className' | 'child
 export default function Container({ children, className, ...props }: ContainerProps) {
   return (
     <BlurFade
-      className={cn('container mx-auto max-w-3xl px-4', className)}
+      className={cn('container  mx-auto max-w-3xl px-4', className)}
       inView
-      staggerChildren={0.2}
+      staggerChildren={0.1}
       delayChildren={0.02}
       {...props}
     >
