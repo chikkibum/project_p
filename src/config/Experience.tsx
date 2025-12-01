@@ -175,6 +175,82 @@ export const experiences: Experience[] = [
     website: 'https://chariotwebsolutions.com/',
   },
   {
+    "isCurrent": false,
+    "company": "Freelance Experience",
+    "position": "Freelancer",
+    "location": "Remote",
+    "image": "/company/freelance.png",
+    "description": [
+      "Worked with various clients on multiple projects, including resume builders, e-commerce platforms, and custom web applications.",
+      "Collaborated closely with clients to understand their requirements and delivered high-quality, scalable solutions on time.",
+      "Managed full project lifecycles from initial consultation, planning, and design to development and final delivery.",
+      "Utilized modern technologies such as MERN stack, Next.js, and WordPress to build custom solutions tailored to client needs.",
+      "Provided ongoing support, updates, and maintenance for completed projects, ensuring seamless operation and client satisfaction."
+    ],
+    "startDate": "June 2024",
+    "endDate": "January 2025",
+    "website": "https://www.yourfreelanceportfolio.com/",
+    "github": "https://github.com/yourusername",
+    "x": "https://x.com/yourusername",  
+    "linkedin": "https://www.linkedin.com/in/yourusername/",
+    technologies: [
+      {
+        name: 'Next.js',
+        href: 'https://nextjs.org/',
+        icon: <NextJs />,
+      },
+      {
+        name: 'Tailwind CSS',
+        href: 'https://tailwindcss.com/',
+        icon: <TailwindCss />,
+      },
+      {
+        name: 'TypeScript',
+        href: 'https://typescriptlang.org/',
+        icon: <TypeScript />,
+      },
+      {
+        name: 'React',
+        href: 'https://react.dev/',
+        icon: <ReactIcon />,
+      },
+      {
+        name:"Motion",
+        href: 'https://motion.dev/',
+        icon: <Motion />,
+      },
+
+      {
+        name: 'Figma',
+        href: 'https://figma.com/',
+        icon: <Figma />,
+      },
+      {
+        name: 'Postman',
+        href: 'https://www.postman.com/',
+        icon: <Postman />,
+      },
+
+      {
+        name: 'Node.js',
+        href: 'https://nodejs.org/',
+        icon: <NodeJs />,
+      },
+      {
+        name: 'Express.js',
+        href: 'https://expressjs.com/',
+        icon: <ExpressJs />,
+      },
+
+      {
+        name:"mongodb",
+        href: 'https://mongodb.com/',
+        icon: <MongoDB />,
+      }
+
+    ],
+  },
+  {
     isCurrent: false,
     company: 'Oppia Foundation',
     position: 'Translation Team Lead',
@@ -194,5 +270,6 @@ export const experiences: Experience[] = [
     x: 'https://x.com/oppiaorg',
     linkedin: 'https://www.linkedin.com/company/oppia-org/',
     technologies:[]
-  }
-];
+  },
+
+]
