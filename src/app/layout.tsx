@@ -12,6 +12,9 @@ import './globals.css';
 import SunlightBackground from '@/components/sunlightBg/sunlight-background';
 import { fonts } from '@/lib/fonts';
 import { JetBrains_Mono } from "next/font/google";
+import { SiteHeader } from '@/components/site-header';
+import { SiteFooter } from '@/components/site-footer';
+import { ScrollToTop } from '@/components/scroll-to-top';
 
 export const metadata = getMetadata('/');
 
@@ -47,7 +50,11 @@ export default function RootLayout({
                 
                 {/* Main content wrapper with padding */}
                 <div className="relative z-10 xs:px-[5%] sm:px-[10%] lg:px-[20%] xl:px-[25%]">
-                  <Navbar />
+                  {/* <Navbar /> */}
+          <SiteHeader />
+          <ScrollToTop/>
+
+
                   {children}
                   <OnekoCat />
                   <Quote />
@@ -59,6 +66,7 @@ export default function RootLayout({
             </ReactLenis>
             </SunlightBackground>
           </ThemeProvider>
+          {/* <SiteFooter /> */}
         </body>
       </html>
     </ViewTransitions>
