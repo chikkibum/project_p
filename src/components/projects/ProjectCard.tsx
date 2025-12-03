@@ -76,7 +76,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 {project.title}
               </h3>
             </Link>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center  gap-2">
               <Tooltip>
                 <TooltipTrigger>
                   <Link
@@ -111,11 +111,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </div>
 
           {/* Description */}
-          <p className="text-secondary line-clamp-3">{project.description}</p>
+          <p className="text-secondary font-mono line-clamp-3">{project.description}</p>
 
           {/* Technologies */}
           <div>
-            <h4 className="text-sm font-medium mb-2 text-secondary">
+            <h4 className="text-sm font-mono font-medium mb-2 text-secondary">
               Technologies
             </h4>
             <div className="flex flex-wrap gap-2">
@@ -147,12 +147,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
           >
             {project.isWorking ? (
               <>
-                <div className="size-2 rounded-full bg-green-500 animate-pulse" />
+                <div className="size-2 rounded-full font-mono bg-green-500 animate-pulse" />
                 All Systems Operational
               </>
             ) : (
               <>
-                <div className="size-2 rounded-full bg-red-500 animate-pulse" />
+                <div className="size-2 rounded-full font-mono bg-red-500 animate-pulse" />
                 Building
               </>
             )}

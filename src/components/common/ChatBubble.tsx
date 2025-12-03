@@ -275,7 +275,11 @@ const ChatBubble: React.FC = () => {
       </ExpandableChatHeader>
 
       <ExpandableChatBody>
-        <ScrollArea ref={scrollAreaRef} className="h-full p-4">
+        <ScrollArea ref={scrollAreaRef}
+        data-lenis-prevent
+        data-lenis-prevent-wheel
+        data-lenis-prevent-touch
+        className="h-full p-4">
           <div className="space-y-4">
             {messages.map((message) => (
               <div

@@ -123,7 +123,7 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
       <div>
         <h4 className="text-md mt-4 mb-2 font-semibold">Technologies</h4>
         <div className="flex flex-wrap gap-2">
-          {experience.technologies.map((technology, techIndex: number) => (
+          {experience?.technologies && experience?.technologies.map((technology, techIndex: number) => (
             <Skill
               key={techIndex}
               name={technology.name}
@@ -136,7 +136,7 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
       </div>
 
       {/* Description */}
-      <div className="text-secondary flex flex-col">
+      <div className="text-secondary font-mono text-sm md:text-base flex flex-col">
         {experience.description.map(
           (description: string, descIndex: number) => (
             <p

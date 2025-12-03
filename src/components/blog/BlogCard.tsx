@@ -36,13 +36,13 @@ export function BlogCard({ post }: BlogCardProps) {
         </div>
       </CardHeader>
       <CardContent>
-        <div className="space-y-3">
+        <div className="space-y-3 ">
           <Link href={`/blog/${slug}`}>
             <h3 className="line-clamp-2 text-xl font-semibold leading-tight group-hover:text-primary">
               {title}
             </h3>
           </Link>
-          <p className="line-clamp-3 text-secondary mt-4">{description}</p>
+          <p className="line-clamp-3 font-mono text-secondary mt-4">{description}</p>
         </div>
       </CardContent>
       <CardFooter className="p-6 pt-0">

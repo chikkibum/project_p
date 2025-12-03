@@ -19,7 +19,7 @@ export default function About() {
           height={100}
           className="border-secondary size-60 rounded-md border-2 bg-blue-300 dark:bg-yellow-300"
         />
-        <div className="mt-4">
+        <div className="mt-4 font-mono">
           <h3 className="text-2xl font-bold">{about.name}</h3>
           <p className="text-secondary mt-4">{about.description}</p>
           <p className="text-secondary mt-8 font-bold">Skills</p>
