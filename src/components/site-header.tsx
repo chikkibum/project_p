@@ -36,7 +36,7 @@ export function SiteHeader() {
       )}
     >
       <div
-        className="screen-line-before screen-line-after mx-auto flex h-12 items-center justify-between gap-2 px-2 after:z-1 after:transition-[background-color] sm:gap-4 md:max-w-3xl"
+        className="screen-line-before border-x border-edge screen-line-after mx-auto flex h-12 items-center justify-between gap-2 px-2 after:z-1 after:transition-[background-color] sm:gap-4 md:max-w-3xl"
         data-header-container
       >
         <BrandContextMenu>

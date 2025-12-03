@@ -15,7 +15,7 @@ export default function page() {
   return (
     <section className='relative font-sans'>
       
-      <Container className="min-h-screen py-16 relative z-10">
+      <Container offset={40} blur='3px' direction='up' className="min-h-screen border-x border-edge py-16 relative z-10">
         <Hero />
         <Separator className='my-8'/> 
         <Experience />
