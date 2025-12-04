@@ -119,7 +119,7 @@ export default function Github() {
   }, []);
 
   return (
-    <Container>
+    <Container className='px-0 md:px-4'>
       <div className="space-y-6">
         {/* Header */}
         <div className="flex items-center justify-between">
@@ -172,12 +172,12 @@ export default function Github() {
             </Button>
           </div>
         ) : (
-          <div className="relative overflow-hidden">
-            <div className="relative bg-background/50 backdrop-blur-sm rounded-lg border border-dashed dark:border-white/10 border-black/20 p-6">
-              <div className="w-full overflow-x-auto ">
+          <div className="relative overflow-hidden w-full">
+            <div className="relative font-mono bg-background/50 backdrop-blur-sm rounded-lg border border-black/10 dark:border-white/10 p-2 sm:p-4 md:p-6 github-card-shadow">
+              <div className="w-full mx-auto overflow-x-auto ">
                 <ActivityCalendar
                   data={contributions}
-                  blockSize={12}
+                  blockSize={8}
                   blockMargin={4}
                   fontSize={githubConfig.fontSize}
                   colorScheme={theme === 'dark' ? 'dark' : 'light'}

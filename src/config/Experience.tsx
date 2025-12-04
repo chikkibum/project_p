@@ -39,7 +39,7 @@ export const experiences: Experience[] = [
   {
     isCurrent: true,
     isBlur: false,
-    company: 'Adda247(for Career247)',
+    company: 'Adda247(Career247)',
     position: 'SDE (Full Stack)',
     location: 'Gurgaon, India (On-Site)',
     image: '/company/Adda.png',
