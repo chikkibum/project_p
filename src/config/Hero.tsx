@@ -55,14 +55,15 @@ export const heroConfig = {
   // Personal Information
   name: 'Bhaskar',
   title: 'A Full Stack web developer.',
-  avatar: '/assets/logo.png',
+  avatar: '/assets/logo.jpeg',
+  flipSentences: ['Full stack developer', 'design Engineer', 'problem solver', 'quick learner', 'team player'],
 
   // Skills Configuration
   skills: [
     {
-      name: 'Typescript',
-      href: 'https://www.typescriptlang.org/',
-      component: 'TypeScript',
+      name: 'Bun',
+      href: 'https://bun.sh/',
+      component: 'Bun',
     },
     {
       name: 'React',
@@ -70,15 +71,17 @@ export const heroConfig = {
       component: 'ReactIcon',
     },
     {
+      name: 'Typescript',
+      href: 'https://www.typescriptlang.org/',
+      component: 'TypeScript',
+    },
+
+    {
       name: 'Next.js',
       href: 'https://nextjs.org/',
       component: 'NextJs',
     },
-    {
-      name: 'Bun',
-      href: 'https://bun.sh/',
-      component: 'Bun',
-    },
+
     {
       name: 'PostgreSQL',
       href: 'https://www.postgresql.org/',
@@ -89,7 +92,7 @@ export const heroConfig = {
   // Description Configuration
   description: {
     template:
-      'I build interactive web apps using {skills:0}, {skills:1}, {skills:2}, {skills:3} and {skills:4}. With a focus on <b>UI</b> design. Enthusiastic about <b>Three.js</b>, driven by a keen eye for design.',
+      'I build interactive web apps using {skills:0}{skills:1}{skills:2}{skills:3} and {skills:4}. With a focus on <b>UI</b> design. Enthusiastic about <b>Three.js</b>,driven by a keen eye for design.',
   },
 
   // Buttons Configuration

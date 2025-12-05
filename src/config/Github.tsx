@@ -6,7 +6,7 @@
  */
 
 export const githubConfig = {
-  username: 'ramxcodes',
+  username: 'chikkibum',
   apiUrl: 'https://github-contributions-api.deno.dev',
 
   // Display settings
@@ -36,7 +36,7 @@ export const githubConfig = {
   ],
 
   // Weekday labels (empty for weekends, M for Monday, etc.)
-  weekdays: ['', 'M', '', 'W', '', 'F', ''],
+  weekdays: ['', 'M', '', 'W', '', 'F', 'S'],
 
   // Total count label template
   totalCountLabel: '{{count}} contributions in the last year',
