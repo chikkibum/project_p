@@ -11,7 +11,7 @@ import { Button } from '../ui/button';
 
 export default function Projects() {
   return (
-    <Container>
+    <Container className='px-0 md:px-4'>
       <SectionHeading subHeading="Featured" heading="Projects" />
 
       <ProjectList className="mt-8" projects={projects.slice(0, 4)} />

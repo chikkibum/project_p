@@ -25,7 +25,7 @@ const setup = [
 
 export default function Setup() {
   return (
-    <Container>
+    <Container className='px-0 md:px-4'>
       <SectionHeading subHeading="Development" heading="Setup" />
       <div className="flex flex-col gap-4 mt-8">
         {setup.map((item) => (

@@ -1,16 +1,18 @@
+import ImageWithPlaceholder from '@/components/common/ImageWithPlaceholder';
 import { heroConfig, skillComponents, socialLinks } from '@/config/Hero';
 import { parseTemplate } from '@/lib/hero';
 import { cn } from '@/lib/utils';
 import { Link } from 'next-view-transitions';
-import Image from 'next/image';
 import React from 'react';
 
 import Container from '../common/Container';
 import Skill from '../common/Skill';
+import { FlipSentences } from '../flip-sentences';
 import CV from '../svgs/CV';
 import Chat from '../svgs/Chat';
 import { Button } from '../ui/button';
 import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
+import SpotifyNowPlaying from './SpotifyNowPlaying';
 
 const buttonIcons = {
   CV: CV,
@@ -18,7 +20,8 @@ const buttonIcons = {
 };
 
 export default function Hero() {
-  const { name, title, avatar, skills, description, buttons } = heroConfig;
+  const { name, avatar, skills, description, buttons, flipSentences } =
+    heroConfig;
 
   const renderDescription = () => {
     const parts = parseTemplate(description.template, skills);
@@ -50,23 +53,38 @@ export default function Hero() {
   };
 
   return (
-    <Container className="mx-auto max-w-5xl">
-      {/* Image */}
-      <Image
-        src={avatar}
-        alt="hero"
-        width={100}
-        height={100}
-        className="size-24 rounded-full dark:bg-yellow-300 bg-blue-300"
-      />
-
+    <Container className="mx-auto max-w-5xl px-0 md:px-4">
       {/* Text Area */}
       <div className="mt-8 flex flex-col gap-2">
-        <h1 className="text-4xl font-bold">
-          Hi, I&apos;m {name} — <span className="text-secondary">{title}</span>
-        </h1>
+        <div className="flex items-center gap-4 md:gap-8">
+          {/* Image */}
+          <ImageWithPlaceholder
+            src={avatar}
+            alt="hero"
+            width={100}
+            height={100}
+            unoptimized={process.env.NODE_ENV === 'development'}
+            className="object-cover size-24 rounded-full dark:bg-yellow-300 bg-blue-300"
+          />
+          <h1 className="text-3xl font-bold">
+            Hi, I&apos;m {name}
+            <div className="text-secondary text-base md:text-lg">
+            <FlipSentences
+              className=" font-mono text-secondary font-normal"
+              variants={{
+                initial: { y: -10, opacity: 0 },
+                animate: { y: -1, opacity: 1 },
+                exit: { y: 10, opacity: 0 },
+              }}
+            >
+              {flipSentences}
+            </FlipSentences>
+            </div>
+   
+          </h1>
+        </div>
 
-        <div className="mt-4 flex flex-wrap items-center gap-x-1.5 gap-y-2 text-base md:text-lg text-muted-foreground whitespace-pre-wrap">
+        <div className="mt-4 flex flex-wrap items-center gap-x-1 gap-y-2 text-sm md:text-lg text-muted-foreground ">
           {renderDescription()}
         </div>
       </div>
@@ -81,10 +99,8 @@ export default function Hero() {
               key={index}
               variant={button.variant as 'outline' | 'default'}
               className={cn(
-                button.variant === 'outline' &&
-                  'inset-shadow-indigo-500',
-                button.variant === 'default' &&
-                  'inset-shadow-indigo-500',
+                button.variant === 'outline' && 'inset-shadow-indigo-500',
+                button.variant === 'default' && 'inset-shadow-indigo-500',
               )}
             >
               {IconComponent && <IconComponent />}
@@ -113,6 +129,10 @@ export default function Hero() {
           </Tooltip>
         ))}
       </div>
+
+      {/* Spotify Now Playing */}
+      <SpotifyNowPlaying />
+
     </Container>
   );
 }

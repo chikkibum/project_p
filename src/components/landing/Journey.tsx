@@ -4,14 +4,14 @@ import React from 'react';
 
 import Container from '../common/Container';
 import SectionHeading from '../common/SectionHeading';
-import CV from '../svgs/CV';
-import Calender from '../svgs/Calender';
+// import CV from '../svgs/CV';
+// import Calender from '../svgs/Calender';
 import { Card } from '../ui/card';
 import { journeyItems } from '@/config/Journey';
 
 export default function Journey() {
   return (
-    <Container>
+    <Container className='px-0 md:px-4'>
       <SectionHeading subHeading="Journey" heading="Journey" />
       <div className="flex flex-col gap-4 mt-8">
         {journeyItems.map((item) => (
