@@ -1,12 +1,12 @@
 'use client'
 
-import React, { ReactNode,  useLayoutEffect, useState } from 'react'
+import React, { ReactNode, useLayoutEffect, useState } from 'react'
 import { useTheme } from 'next-themes'
 
 export default function SunlightBackground({ children }: { children: ReactNode }) {
-  const { theme, resolvedTheme } = useTheme()
-  console.log('resolvedTheme', resolvedTheme)
+  const { resolvedTheme } = useTheme()
   const [shouldRenderLeaves, setShouldRenderLeaves] = useState(true)
+  const isDark = resolvedTheme === 'dark'
 
   useLayoutEffect(() => {
     // Simple performance check
@@ -15,7 +15,7 @@ export default function SunlightBackground({ children }: { children: ReactNode }
   }, [])
 
   return (
-    <div className={`min-h-screen ${theme == "dark" ? 'dark' : ''}`}>
+    <div className={`min-h-screen ${isDark ? 'dark' : ''}`}>
       <div id="dappled-light">
         <div id="glow"></div>
         <div id="glow-bounce"></div>

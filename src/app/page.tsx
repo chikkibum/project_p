@@ -13,7 +13,7 @@ import { cn } from '@/lib/utils';
 
 export default function page() {
   return (
-    <section className='relative'>
+    <section className='relative font-sans'>
       
       <Container className="min-h-screen py-16 relative z-10">
         <Hero />
