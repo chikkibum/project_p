@@ -3,8 +3,8 @@
 import { ctaConfig } from '@/config/CTA';
 import { useHapticFeedback } from '@/hooks/use-haptic-feedback';
 import Cal, { getCalApi } from '@calcom/embed-react';
-import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import ImageWithPlaceholder from '@/components/common/ImageWithPlaceholder';
 
 import Container from '../common/Container';
 import {
@@ -73,7 +73,7 @@ export default function CTA({
             >
               <div className="flex items-center gap-2 group-hover:gap-8 transition-all duration-300 relative z-20">
                 <div className="w-5 h-5 rounded-full overflow-hidden flex-shrink-0">
-                  <Image
+                  <ImageWithPlaceholder
                     alt={profileAlt}
                     width={20}
                     height={20}
