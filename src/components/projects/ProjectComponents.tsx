@@ -9,8 +9,8 @@ import Prisma from '@/components/technologies/Prisma';
 import ReactIcon from '@/components/technologies/ReactIcon';
 import TypeScript from '@/components/technologies/TypeScript';
 import { Badge } from '@/components/ui/badge';
-import Image from 'next/image';
 import React from 'react';
+import ImageWithPlaceholder from '@/components/common/ImageWithPlaceholder';
 
 import { CodeCopyButton } from '../blog/CodeCopyButton';
 
@@ -175,7 +175,7 @@ export const ProjectComponents = {
     alt: string;
     [key: string]: unknown;
   }) => (
-    <Image
+    <ImageWithPlaceholder
       src={src}
       alt={alt}
       width={800}

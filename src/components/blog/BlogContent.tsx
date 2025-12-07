@@ -3,7 +3,7 @@ import { Separator } from '@/components/ui/separator';
 import { BlogFrontmatter } from '@/types/blog';
 import rehypeHighlight from '@shikijs/rehype';
 import { MDXRemote } from 'next-mdx-remote/rsc';
-import Image from 'next/image';
+import ImageWithPlaceholder from '@/components/common/ImageWithPlaceholder';
 
 import Calender from '../svgs/Calender';
 import { BlogComponents } from './BlogComponents';
@@ -27,7 +27,7 @@ export function BlogContent({ frontmatter, content }: BlogContentProps) {
       {/* Hero Section */}
       <header className="mb-8 space-y-6">
         <div className="relative aspect-video overflow-hidden rounded-lg">
-          <Image
+          <ImageWithPlaceholder
             src={image}
             alt={title}
             fill

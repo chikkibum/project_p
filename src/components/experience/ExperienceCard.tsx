@@ -1,8 +1,8 @@
 import { type Experience } from '@/config/Experience';
 import { cn } from '@/lib/utils';
 import { Link } from 'next-view-transitions';
-import Image from 'next/image';
 import React from 'react';
+import ImageWithPlaceholder from '@/components/common/ImageWithPlaceholder';
 
 import Skill from '../common/Skill';
 import Github from '../svgs/Github';
@@ -26,12 +26,13 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
       <div className="flex flex-col gap-2 md:flex-row md:justify-between">
         {/* Left Side */}
         <div className="flex items-center gap-4">
-          <Image
+          <ImageWithPlaceholder
             src={experience.image}
             alt={experience.company}
             width={100}
             height={100}
             className="size-12 rounded-md"
+            unoptimized={process.env.NODE_ENV === 'development'}
           />
           <div className="flex flex-col">
             <div className="flex items-center gap-2">
@@ -106,7 +107,7 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
                 </div>
               )}
             </div>
-            <p>{experience.position}</p>
+            <p className="text-sm md:text-base text-muted-foreground font-mono">{experience.position}</p>
           </div>
         </div>
         {/* Right Side */}
@@ -136,7 +137,7 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
       </div>
 
       {/* Description */}
-      <div className="text-muted-foreground font-mono text-sm md:text-base flex flex-col">
+      <div className="text-muted-foreground font-mono text-sm md:text-sm flex flex-col">
         {experience.description.map(
           (description: string, descIndex: number) => (
             <p

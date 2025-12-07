@@ -7,7 +7,7 @@ import {
 } from '@/components/ui/card';
 import { BlogPostPreview } from '@/types/blog';
 import { Link } from 'next-view-transitions';
-import Image from 'next/image';
+import ImageWithPlaceholder from '@/components/common/ImageWithPlaceholder';
 
 import ArrowRight from '../svgs/ArrowRight';
 import Calender from '../svgs/Calender';
@@ -31,7 +31,7 @@ export function BlogCard({ post }: BlogCardProps) {
       <CardHeader className="p-0">
         <div className="relative aspect-video overflow-hidden">
           <Link href={`/blog/${slug}`}>
-            <Image src={image} alt={title} fill className="object-cover" />
+            <ImageWithPlaceholder src={image} alt={title} fill className="object-cover" />
           </Link>
         </div>
       </CardHeader>

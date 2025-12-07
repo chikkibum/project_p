@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import React from 'react';
+import ImageWithPlaceholder from '@/components/common/ImageWithPlaceholder';
 
 import { CodeCopyButton } from './CodeCopyButton';
 
@@ -14,7 +14,7 @@ export const BlogComponents = {
     alt: string;
     [key: string]: unknown;
   }) => (
-    <Image
+    <ImageWithPlaceholder
       src={src}
       alt={alt}
       width={800}

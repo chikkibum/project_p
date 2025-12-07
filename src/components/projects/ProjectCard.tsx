@@ -14,8 +14,8 @@ import {
 } from '@/components/ui/dialog';
 import { type Project } from '@/types/project';
 import { Link } from 'next-view-transitions';
-import Image from 'next/image';
 import React, { useState } from 'react';
+import ImageWithPlaceholder from '@/components/common/ImageWithPlaceholder';
 
 import ArrowRight from '../svgs/ArrowRight';
 import Github from '../svgs/Github';
@@ -34,7 +34,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
     <Card className="group h-full w-full overflow-hidden transition-all p-0 border-gray-100 dark:border-gray-800 shadow-none">
       <CardHeader className="p-0">
         <div className="group relative aspect-video overflow-hidden">
-          <Image
+          <ImageWithPlaceholder
             className="h-full w-full object-cover"
             src={project.image}
             alt={project.title}
