@@ -1,7 +1,7 @@
 import { navbarConfig } from '@/config/Navbar';
 import { Link } from 'next-view-transitions';
-import Image from 'next/image';
 import React from 'react';
+import ImageWithPlaceholder from './ImageWithPlaceholder';
 
 import Container from './Container';
 import { ThemeToggleButton } from './ThemeSwitch';
@@ -12,7 +12,7 @@ export default function Navbar() {
       <div className="flex items-center justify-between px-6">
         <div className="flex items-baseline gap-4">
           <Link href="/">
-            <Image
+            <ImageWithPlaceholder
               className="h-12 w-12 rounded-md border border-gray-200 bg-blue-300 transition-all duration-300 ease-in-out hover:scale-90 dark:bg-yellow-300"
               src={navbarConfig.logo.src}
               alt={navbarConfig.logo.alt}

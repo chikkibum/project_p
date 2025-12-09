@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 
 import { SiteHeaderMark } from "./site-header-mark";
 import { SiteHeaderWrapper } from "./site-header-wrapper";
+// import { MusicToggleButton } from "@/components/ui/toggle-music";
 // import { ThemeToggle } from "./theme-toggle";
 
 const BrandContextMenu = dynamic(() =>
@@ -29,14 +30,13 @@ export function SiteHeader() {
   return (
     <SiteHeaderWrapper
       className={cn(
-        "sticky top-0 z-50 max-w-screen overflow-x-hidden  backdrop-blur-md px-2 pt-2",
-        "data-[affix=true]:shadow-[0_0_16px_0_black]/8 dark:data-[affix=true]:shadow-[0_0_16px_0_black]",
+        "sticky top-0 z-50 max-w-screen overflow-hidden md:border-y  backdrop-blur-md px-2 ",
         "not-dark:data-[affix=true]:**:data-header-container:after:bg-border",
         "transition-shadow duration-300"
       )}
     >
       <div
-        className="screen-line-before border-x border-edge screen-line-after mx-auto flex h-12 items-center justify-between gap-2 px-2 after:z-1 after:transition-[background-color] sm:gap-4 md:max-w-3xl"
+        className="screen-line-before screen-line-after md:border-x md:border-t mx-auto flex h-12 items-center justify-between gap-2 px-2 after:z-1 after:transition-[background-color] sm:gap-4 md:max-w-3xl"
         data-header-container
       >
         <BrandContextMenu>
@@ -59,6 +59,7 @@ export function SiteHeader() {
           <span className="mx-2 flex h-4 w-px bg-border" />
           {/* <ThemeToggle /> */}
           <MobileNav className="md:hidden" items={navbarConfig?.navItems || []} />
+          {/* <MusicToggleButton audioSrc="/audio/chanhdai.mp3"/> */}
         </div>
       </div>
     </SiteHeaderWrapper>

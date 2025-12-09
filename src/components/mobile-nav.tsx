@@ -10,7 +10,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
-import type { NavItem } from "@/types/nav";
+import type { NavItem } from "@/config/Navbar";
 
 export function MobileNav({
   items,
@@ -36,7 +36,7 @@ export function MobileNav({
       <DropdownMenuContent className="w-64" align="end" sideOffset={8}>
         {items.map((link) => (
           <DropdownMenuItem key={link.href} asChild>
-            <Link href={link.href}>{link.title}</Link>
+            <Link href={link.href}>{link.label}</Link>
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
