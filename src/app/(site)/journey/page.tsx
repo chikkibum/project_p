@@ -1,5 +1,5 @@
 import Container from '@/components/common/Container';
-import SectionHeading from '@/components/common/SectionHeading';
+// import SectionHeading from '@/components/common/SectionHeading';
 import { Separator } from '@/components/ui/separator';
 import { generateMetadata as getMetadata } from '@/config/Meta';
 import { Metadata } from 'next';
@@ -18,7 +18,7 @@ export default function JourneyPage() {
 
   if (!data) {
     return (
-      <Container className="py-8 md:py-16">
+      <Container className="py-8 md:py-16 border-x md:px-8 border-edge">
         <div className="space-y-6 md:space-y-8">
           <div className="space-y-3 md:space-y-4 text-center">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">

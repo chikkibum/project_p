@@ -7,6 +7,7 @@ import Github from '@/components/landing/Github';
 import Hero from '@/components/landing/Hero';
 import Work from '@/components/landing/Projects';
 import Setup from '@/components/landing/Setup';
+import Games from '@/components/landing/Games';
 import Journey from '@/components/landing/Journey';
 import React from 'react';
 import { cn } from '@/lib/utils';
@@ -15,7 +16,7 @@ export default function page() {
   return (
     <section className='relative font-sans'>
       
-      <Container offset={40} blur='3px' direction='up' className="min-h-screen border-x border-edge py-16 relative z-10">
+      <Container offset={40} blur='3px' direction='up' className="min-h-screen border-x border-edge py-16 relative z-10" >
         <Hero />
         <Separator className='my-8'/> 
         <Experience />
@@ -31,6 +32,8 @@ export default function page() {
         <CTA />
         <Separator className='my-8'/> 
         <Setup />
+        <Separator className='my-8'/> 
+        <Games />
         <Separator className='my-8'/> 
         <Journey />
         <Separator className='my-8'/> 

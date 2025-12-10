@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 
 export default function ResumePage() {
   return (
-    <Container className="py-16">
+    <Container className="py-16 border-x md:px-8 border-edge">
       <div className="space-y-8">
         <div className="space-y-4 text-center">
           <h1 className="text-4xl font-bold tracking-tight lg:text-5xl">

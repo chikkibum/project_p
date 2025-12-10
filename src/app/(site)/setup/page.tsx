@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
 export default function SetupPage() {
   return (
-    <Container className="py-8 md:py-16">
+    <Container className="py-8 md:py-16 border-x md:px-8 border-edge">
       <div className="space-y-6 md:space-y-8">
         {/* Header */}
         <div className="space-y-3 md:space-y-4 text-center">
