@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import Image from 'next/image';
-import { Dialog, DialogContent, DialogTrigger, DialogTitle } from './ui/dialog';
+import { Dialog, DialogContent, DialogTitle } from './ui/dialog';
 import { certificates } from '@/config/Achievements';
+import ImageWithPlaceholder from './common/ImageWithPlaceholder';
 
 export default function CertificatesGallery() {
   const [active, setActive] = useState<string | null>(null);
@@ -14,7 +14,7 @@ export default function CertificatesGallery() {
         {certificates.map((cert) => (
           <div key={cert.file} className="cursor-pointer" onClick={() => setActive(cert.file)}>
             <div className="relative w-full h-56 bg-muted/20 rounded overflow-hidden">
-              <Image src={cert.file} alt={cert.title || 'certificate'} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-contain" />
+              <ImageWithPlaceholder src={cert.file} alt={cert.title || 'certificate'} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-contain" />
             </div>
             <div className="mt-3">
               <h4 className="text-sm font-semibold">{cert.title}</h4>
@@ -32,7 +32,7 @@ export default function CertificatesGallery() {
           <div className="w-full h-[80vh] flex items-center justify-center">
             {active && (
               <div className="relative w-full h-full">
-                <Image src={active} alt="certificate" fill sizes="100vw" className="object-contain" />
+                <ImageWithPlaceholder src={active} alt="certificate" fill sizes="100vw" className="object-contain" />
               </div>
             )}
           </div>

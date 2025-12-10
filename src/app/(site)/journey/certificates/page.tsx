@@ -1,15 +1,14 @@
 import fs from 'fs';
 import path from 'path';
 import Container from '@/components/common/Container';
-import SectionHeading from '@/components/common/SectionHeading';
+// import SectionHeading from '@/components/common/SectionHeading';
 import { Separator } from '@/components/ui/separator';
 import { generateMetadata as getMetadata } from '@/config/Meta';
 import { Metadata } from 'next';
 import React from 'react';
 import CertificatesGallery from '@/components/CertificatesGallery';
-import Image from 'next/image';
 import { certificates as configuredCertificates } from '@/config/Achievements';
-import { Card } from '@/components/ui/card';
+// import { Card } from '@/components/ui/card';
 
 export const metadata: Metadata = {
   ...getMetadata('/journey/certificates'),
@@ -27,6 +26,7 @@ export default function CertificatesPage() {
         .filter((f) => /\.(png|jpe?g|webp|avif)$/i.test(f))
         .map((f) => ({ file: `/certificates/${f}`, title: undefined, issuer: undefined, date: undefined }));
     }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (e) {
     // ignore errors and render configured certificates only
     discovered = [];
@@ -36,12 +36,13 @@ export default function CertificatesPage() {
   const configured = Array.isArray(configuredCertificates) ? configuredCertificates : [];
   // Build map to avoid duplicates by file path
   const map = new Map<string, { file: string; title?: string; issuer?: string; date?: string }>();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   configured.forEach((c: any) => map.set(c.file, c));
   discovered.forEach((d) => {
-    if (!map.has(d.file)) map.set(d.file, d);
+    if (!map.has(d.file)) map.set(d.file, d );
   });
 
-  const allCerts = Array.from(map.values());
+  // const allCerts = Array.from(map.values());
 
   return (
     <Container className="py-8 md:py-16">
