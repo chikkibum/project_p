@@ -22,8 +22,8 @@ import {
   TriangleDashedIcon,
   TypeIcon,
 } from "lucide-react";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
+import ImageWithPlaceholder from "./common/ImageWithPlaceholder";
 import { useTheme } from "next-themes";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { useHotkeys } from "react-hotkeys-hook";
@@ -43,8 +43,8 @@ import {
 import { cn } from "@/lib/utils";
 import { copyText } from "@/lib/utils/copy";
 
-import { ChanhDaiMark, getMarkSVG } from "./chanhdai-mark";
-import { getWordmarkSVG } from "./chanhdai-wordmark";
+import { BhaskarMark, getBhaskarMarkSVG } from "./bhaskar-mark";
+import { getWordmarkSVG } from "./bhaskar-watermark";
 import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
 
@@ -74,7 +74,7 @@ const MENU_LINKS: CommandLinkItem[] = [
   {
     title: "Portfolio",
     href: "/",
-    icon: ChanhDaiMark,
+    icon: BhaskarMark,
   },
   {
     title: "Components",
@@ -370,12 +370,12 @@ export function CommandMenu({ posts = [] }: { posts?: CommandMenuPost[] }) {
             <CommandItem
               onSelect={() => {
                 handleCopyText(
-                  getMarkSVG(resolvedTheme === "light" ? "#000" : "#fff"),
+                  getBhaskarMarkSVG(resolvedTheme === "light" ? "#000" : "#fff"),
                   "Copied Mark as SVG"
                 );
               }}
             >
-              <ChanhDaiMark />
+              <BhaskarMark />
               Copy Mark as SVG
             </CommandItem>
 
@@ -392,14 +392,14 @@ export function CommandMenu({ posts = [] }: { posts?: CommandMenuPost[] }) {
             </CommandItem>
 
             <CommandItem
-              onSelect={() => handleOpenLink("/blog/chanhdai-brand")}
+              onSelect={() => handleOpenLink("/blog/bhaskar-brand")}
             >
               <TriangleDashedIcon />
               Brand Guidelines
             </CommandItem>
 
             <CommandItem asChild>
-              <a href="https://assets.chanhdai.com/chanhdai-brand.zip" download>
+              <a href="https://assets.bhaskar.com/bhaskar-brand.zip" download>
                 <DownloadIcon />
                 Download Brand Assets
               </a>
@@ -519,7 +519,7 @@ function CommandLinkGroup({
             onSelect={() => onLinkSelect(link.href, link.openInNewTab)}
           >
             {link?.iconImage ? (
-              <Image
+              <ImageWithPlaceholder
                 className="rounded-sm corner-squircle supports-corner-shape:rounded-[50%]"
                 src={link.iconImage}
                 alt={link.title}
@@ -593,7 +593,7 @@ function CommandMenuFooter() {
       <div className="flex h-10" />
 
       <div className="absolute inset-x-0 bottom-0 flex h-10 items-center justify-between gap-2 border-t bg-zinc-100/30 px-4 text-xs font-medium dark:bg-zinc-800/30">
-        <ChanhDaiMark className="size-6 text-muted-foreground" aria-hidden />
+        <BhaskarMark className="size-6 text-muted-foreground" aria-hidden />
 
         <div className="flex shrink-0 items-center gap-2">
           <span>{ENTER_ACTION_LABELS[selectedCommandKind]}</span>
