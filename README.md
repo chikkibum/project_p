@@ -19,6 +19,7 @@ Click here to your portfolio template now:
 - **Responsive** design
 - **MDX** for blog posts and project details
 - **Contact Form** with Telegram integration
+- **Spotify Integration** - Display currently playing track
 - **SEO** optimized
 - **TypeScript** for type safety
 - **Umami Analytics** for privacy-focused web analytics
@@ -42,6 +43,9 @@ NODE_ENV="development"
 NEXT_PUBLIC_URL="http://localhost:3000"
 NEXT_PUBLIC_UMAMI_SRC="your-umami-script-url"
 NEXT_PUBLIC_UMAMI_ID="your-umami-website-id"
+SPOTIFY_CLIENT_ID="your-spotify-client-id"
+SPOTIFY_CLIENT_SECRET="your-spotify-client-secret"
+SPOTIFY_REFRESH_TOKEN="your-spotify-refresh-token"
 ```
 
 ### Setting up Telegram Integration
@@ -69,6 +73,49 @@ NEXT_PUBLIC_UMAMI_ID="your-umami-website-id"
    NEXT_PUBLIC_UMAMI_SRC="https://[your-umami-instance]/script.js"
    NEXT_PUBLIC_UMAMI_ID="your-website-id"
    ```
+
+### Setting up Spotify Integration
+
+1. Create a Spotify app:
+   - Go to [Spotify Developer Dashboard](https://developer.spotify.com/dashboard)
+   - Click "Create an app"
+   - Fill in app name and description
+   - Accept the terms and create
+
+2. Get your credentials:
+   - Copy your **Client ID** and **Client Secret** from the app dashboard
+   - Add a redirect URI: `http://localhost:3000/api/spotify/callback` (for development)
+   - For production, add your production URL: `https://yourdomain.com/api/spotify/callback`
+
+3. Configure environment variables:
+   ```env
+   SPOTIFY_CLIENT_ID="your-client-id"
+   SPOTIFY_CLIENT_SECRET="your-client-secret"
+   SPOTIFY_REDIRECT_URI="http://localhost:3000/api/spotify/callback" # Optional, defaults to localhost:3000
+   SPOTIFY_REFRESH_TOKEN="your-refresh-token" # Optional initially, will be obtained via OAuth flow
+   ```
+
+4. Obtain a refresh token (two methods):
+
+   **Method 1: Using the OAuth flow (Recommended)**
+   - Start your development server: `npm run dev`
+   - Visit: `http://localhost:3000/api/spotify/login`
+   - You'll be redirected to Spotify to authorize the app
+   - After authorization, you'll be redirected back with `access_token` and `refresh_token` in the URL
+   - Copy the `refresh_token` from the URL and add it to your `.env` file
+
+   **Method 2: Manual setup**
+   - Use a tool like [Spotify OAuth Helper](https://github.com/spotify/web-api-auth-examples)
+   - Follow Spotify's [Authorization Guide](https://developer.spotify.com/documentation/web-api/tutorials/code-flow)
+   - Complete the OAuth flow to get your refresh token
+
+5. **API Endpoints:**
+   - `GET /api/spotify/login` - Initiates OAuth flow
+   - `GET /api/spotify/callback` - Handles OAuth callback
+   - `GET /api/spotify/refresh-token?refresh_token=xxx` - Manually refresh tokens
+   - `GET /api/spotify/now-playing` - Get currently playing track
+
+**Note:** The Spotify widget will automatically refresh every 30 seconds to show your currently playing track. Make sure your Spotify account has music playing for it to display.
 
 ## Getting Started
 
