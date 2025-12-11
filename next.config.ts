@@ -2,6 +2,7 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   images: {
+    unoptimized: false,
     remotePatterns: [
       {
         protocol: 'https',
@@ -22,6 +23,18 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'images-na.ssl-images-amazon.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.prod.website-files.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.thewitcher.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.scdn.co',
       },
     ],
   },
