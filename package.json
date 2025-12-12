@@ -41,6 +41,7 @@
     "@radix-ui/react-toggle-group": "^1.1.10",
     "@radix-ui/react-tooltip": "^1.2.7",
     "@shikijs/rehype": "^3.7.0",
+    "@t3-oss/env-nextjs": "^0.13.8",
     "@trivago/prettier-plugin-sort-imports": "^5.2.2",
     "@types/mdx": "^2.0.13",
     "class-variance-authority": "^0.7.1",
@@ -74,7 +75,7 @@
     "sonner": "^2.0.5",
     "tailwind-merge": "^3.3.1",
     "vaul": "^1.1.2",
-    "zod": "^3.25.71"
+    "zod": "^4.1.13"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
