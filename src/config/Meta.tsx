@@ -1,5 +1,6 @@
 import { about } from './About';
 import { heroConfig } from './Hero';
+import { env } from '@/lib/env';
 
 export interface PageMeta {
   title: string;
@@ -14,7 +15,7 @@ export const siteConfig = {
   name: heroConfig.name,
   title: 'Sleek Portfolio',
   description: 'Portfolio of Bhaskar Pandey',
-  url: process.env.NEXT_PUBLIC_URL || 'http://localhost:3000',
+  url: env.NEXT_PUBLIC_URL,
   ogImage: '/meta/opengraph-image.png',
   author: {
     name: about.name,

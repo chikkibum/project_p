@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { generateRandomString, getAuthorizationUrl } from '@/lib/spotify-auth';
+import { env } from '@/lib/env';
 
 /**
  * GET /api/spotify/login
@@ -17,7 +18,7 @@ export async function GET(request: NextRequest) {
     // Set cookie with httpOnly and secure flags
     response.cookies.set('spotify_auth_state', state, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
+      secure: env.NODE_ENV === 'production',
       sameSite: 'lax',
       maxAge: 60 * 10, // 10 minutes
       path: '/',

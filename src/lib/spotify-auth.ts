@@ -1,4 +1,9 @@
 import crypto from 'crypto';
+import {
+  getSpotifyClientId,
+  getSpotifyRedirectUri,
+  getSpotifyBasicAuth,
+} from './spotify-env';
 
 /**
  * Generates a random string for state parameter in OAuth flow
@@ -11,13 +16,9 @@ export function generateRandomString(length: number): string {
  * Gets the Spotify authorization URL for OAuth flow
  */
 export function getAuthorizationUrl(state: string): string {
-  const clientId = process.env.SPOTIFY_CLIENT_ID;
-  const redirectUri = process.env.SPOTIFY_REDIRECT_URI || 'http://localhost:3000/api/spotify/callback';
+  const clientId = getSpotifyClientId();
+  const redirectUri = getSpotifyRedirectUri();
   const scope = 'user-read-private user-read-email user-read-currently-playing user-read-playback-state user-read-recently-played';
-
-  if (!clientId) {
-    throw new Error('SPOTIFY_CLIENT_ID is not configured');
-  }
 
   const params = new URLSearchParams({
     response_type: 'code',
@@ -40,19 +41,14 @@ export async function exchangeCodeForTokens(code: string): Promise<{
   token_type: string;
   scope: string;
 }> {
-  const clientId = process.env.SPOTIFY_CLIENT_ID;
-  const clientSecret = process.env.SPOTIFY_CLIENT_SECRET;
-  const redirectUri = process.env.SPOTIFY_REDIRECT_URI || 'http://localhost:3000/api/spotify/callback';
-
-  if (!clientId || !clientSecret) {
-    throw new Error('Spotify credentials are not configured');
-  }
+  const redirectUri = getSpotifyRedirectUri();
+  const basicAuth = getSpotifyBasicAuth();
 
   const response = await fetch('https://accounts.spotify.com/api/token', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
-      Authorization: `Basic ${Buffer.from(`${clientId}:${clientSecret}`).toString('base64')}`,
+      Authorization: basicAuth,
     },
     body: new URLSearchParams({
       code: code,

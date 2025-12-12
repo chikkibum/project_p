@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { exchangeCodeForTokens } from '@/lib/spotify-auth';
+import { env } from '@/lib/env';
 
 /**
  * GET /api/spotify/callback
@@ -49,7 +50,7 @@ export async function GET(request: NextRequest) {
 
     // Optionally store tokens in cookies (not recommended for production)
     // For production, you should store these securely server-side
-    if (process.env.NODE_ENV === 'development') {
+    if (env.NODE_ENV === 'development') {
       response.cookies.set('spotify_access_token', tokens.access_token, {
         httpOnly: true,
         secure: false,

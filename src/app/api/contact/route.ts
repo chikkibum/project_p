@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import * as z from 'zod';
+import { env } from '@/lib/env';
 
 const rateLimitStore = new Map<string, { count: number; resetTime: number }>();
 
@@ -68,18 +69,8 @@ async function sendToTelegram(data: {
   phone: string;
   message: string;
 }): Promise<boolean> {
-  const telegramToken = process.env.TELEGRAM_BOT_TOKEN;
-  const telegramChatId = process.env.TELEGRAM_CHAT_ID;
-
-  if (!telegramToken) {
-    console.error('TELEGRAM_BOT_TOKEN not configured');
-    return false;
-  }
-
-  if (!telegramChatId) {
-    console.error('TELEGRAM_CHAT_ID not configured');
-    return false;
-  }
+  const telegramToken = env.TELEGRAM_BOT_TOKEN;
+  const telegramChatId = env.TELEGRAM_CHAT_ID;
 
   const message = `
 🔔 *New Contact Form Submission*
@@ -176,7 +167,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         {
           error: 'Invalid form data',
-          details: error.errors,
+          details: error.issues,
         },
         { status: 400 },
       );

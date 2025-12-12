@@ -2,6 +2,7 @@ import { systemPrompt } from '@/config/ChatPrompt';
 import { createParser } from 'eventsource-parser';
 import { NextRequest, NextResponse } from 'next/server';
 import * as z from 'zod';
+import { env } from '@/lib/env';
 
 const rateLimitStore = new Map<string, { count: number; resetTime: number }>();
 
@@ -128,14 +129,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const apiKey = process.env.GEMINI_API_KEY;
-    if (!apiKey) {
-      console.error('GEMINI_API_KEY not configured');
-      return NextResponse.json(
-        { error: 'AI service not configured' },
-        { status: 500 },
-      );
-    }
+    const apiKey = env.GEMINI_API_KEY;
 
     const body = await request.json();
     const validatedData = chatSchema.parse(body);
@@ -186,7 +180,6 @@ export async function POST(request: NextRequest) {
       body: JSON.stringify(requestBody),
     });
 
-    console.log(response,"response")
 
     if (!response.ok) {
       throw new Error(`Gemini API error: ${response.status}`);
@@ -257,7 +250,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         {
           error: 'Invalid request data',
-          details: error.errors,
+          details: error.issues,
         },
         { status: 400 },
       );

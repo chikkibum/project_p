@@ -1,4 +1,8 @@
 import type { TokenResponse } from '@/types/spotify';
+import {
+  getSpotifyBasicAuth,
+  getSpotifyRefreshToken,
+} from './spotify-env';
 
 interface CachedToken {
   accessToken: string;
@@ -12,26 +16,15 @@ let tokenCache: CachedToken | null = null;
  * @returns Promise<string> The new access token
  */
 export async function refreshAccessToken(): Promise<string> {
-  const clientId = process.env.SPOTIFY_CLIENT_ID;
-  const clientSecret = process.env.SPOTIFY_CLIENT_SECRET;
-  const refreshToken = process.env.SPOTIFY_REFRESH_TOKEN;
-
-  console.log(`Basic ${Buffer.from(`${clientId}:${clientSecret}`).toString('base64')}`);
-
-
-
-
-
-  if (!clientId || !clientSecret || !refreshToken) {
-    throw new Error('Spotify credentials are not configured');
-  }
+  const refreshToken = getSpotifyRefreshToken();
+  const basicAuth = getSpotifyBasicAuth();
 
   try {
     const response = await fetch('https://accounts.spotify.com/api/token', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
-        Authorization: `Basic ${Buffer.from(`${clientId}:${clientSecret}`).toString('base64')}`,
+        Authorization: basicAuth,
       },
       body: new URLSearchParams({
         grant_type: 'refresh_token',
